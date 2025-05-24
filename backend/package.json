@@ -1,0 +1,39 @@
+{
+  "name": "pdf-management-collab-system-backend",
+  "version": "1.0.0",
+  "description": "Backend for PDF Management & Collaboration System",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "migrate": "psql $DATABASE_URL -f migrations/init.sql",
+    "build": "echo 'No build step required'"
+  },
+  "keywords": [
+    "pdf",
+    "management",
+    "collaboration",
+    "express",
+    "postgresql"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.1",
+    "uuid": "^9.0.0",
+    "nodemailer": "^6.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 

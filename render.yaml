@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: pdf-management-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm run migrate && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: UPLOAD_DIR
+        value: uploads
+      - key: EMAIL_FROM
+        value: no-reply@pdfcollab.com
+
+databases:
+  - name: pdf-management-db
+    databaseName: pdf_management_db
+    user: pdfuser 
