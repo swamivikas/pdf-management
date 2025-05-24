@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from './utils/auth.js';
 
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://pdf-management-backend.onrender.com'
+  ? 'https://pdf-management-backend.onrender.com/api'
   : '/api'; // proxied to backend in development
 
 const api = axios.create({
