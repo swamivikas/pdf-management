@@ -7,6 +7,7 @@ export default function Dashboard() {
   const [search, setSearch] = useState('');
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
+  const [uploading, setUploading] = useState(false);
 
   const fetchFiles = async () => {
     const res = await api.get('/files', { params: { search } });
@@ -26,12 +27,20 @@ export default function Dashboard() {
   const handleUpload = async (e) => {
     e.preventDefault();
     if (!file) return;
+    setUploading(true);
+    setMessage('');
     const fd = new FormData();
     fd.append('pdf', file);
-    const res = await api.post('/files/upload', fd);
-    setMessage('Upload successful');
-    setFile(null);
-    setFiles([res.data.file, ...files]);
+    try {
+      const res = await api.post('/files/upload', fd);
+      setMessage('Upload successful');
+      setFile(null);
+      setFiles([res.data.file, ...files]);
+    } catch (err) {
+      setMessage('Upload failed');
+    } finally {
+      setUploading(false);
+    }
   };
 
   return (
@@ -42,9 +51,11 @@ export default function Dashboard() {
       <div className="card p-3 mb-4">
         <form className="d-flex align-items-center gap-2" onSubmit={handleUpload}>
           <input type="file" accept="application/pdf" className="form-control" onChange={(e)=>setFile(e.target.files[0])} />
-          <button className="btn btn-success">Upload</button>
+          <button className="btn btn-success" disabled={uploading}>
+            {uploading ? 'Uploading...' : 'Upload'}
+          </button>
         </form>
-        {message && <small className="text-success">{message}</small>}
+        {message && <small className={message.includes('failed') ? 'text-danger' : 'text-success'}>{message}</small>}
       </div>
 
       {/* Search */}
