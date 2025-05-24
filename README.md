@@ -9,7 +9,7 @@ This repository contains a **Node.js + PostgreSQL** implementation of a PDF Mana
 * **Backend**: Node.js, Express
 * **Database**: PostgreSQL
 * **Authentication**: JSON Web Tokens (JWT) & BCrypt
-* **File Storage**: Local (using `multer`) – can be swapped for S3/GCS later
+* **File Storage**: Local (using `multer`) 
 * **E-mail**: Nodemailer (configurable SMTP)
 
 ---
