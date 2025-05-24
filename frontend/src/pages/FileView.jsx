@@ -33,7 +33,7 @@ export default function FileView() {
     e.preventDefault();
     const res = await api.post(`/files/${id}/share`, {});
     const frontendUrl = process.env.NODE_ENV === 'production'
-      ? 'https://your-frontend-domain.vercel.app' // Update this after deploying frontend
+      ? 'https://pdf-management-sigma.vercel.app'
       : 'http://localhost:5173';
     setShareLink(`${frontendUrl}/share/${res.data.invite.token}`);
   };

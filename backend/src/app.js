@@ -22,7 +22,7 @@ if (!fs.existsSync(uploadDir)) {
 // Configure CORS for production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-frontend-domain.vercel.app'] // Update this after deploying frontend
+    ? ['https://pdf-management-sigma.vercel.app']
     : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true
 };

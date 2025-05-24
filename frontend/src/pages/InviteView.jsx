@@ -5,7 +5,7 @@ import api from '../api.js';
 import { getToken } from '../utils/auth.js';
 
 const BACKEND_URL = process.env.NODE_ENV === 'production'
-  ? 'https://your-backend-domain.onrender.com' // Update this after deploying backend  
+  ? 'https://pdf-management-backend.onrender.com'
   : 'http://localhost:4000';
 
 export default function InviteView() {
