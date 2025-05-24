@@ -2,6 +2,10 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../api.js';
 
+const BACKEND_URL = process.env.NODE_ENV === 'production'
+  ? 'https://pdf-management-backend.onrender.com'
+  : 'http://localhost:4000';
+
 export default function FileView() {
   const { id } = useParams();
   const [file, setFile] = useState(null);
@@ -47,7 +51,7 @@ export default function FileView() {
         <div className="card">
           <iframe
             title="PDF preview"
-            src={`/static/${file.stored_name}`}
+            src={`${BACKEND_URL}/static/${file.stored_name}`}
             width="100%"
             height="600px"
           />

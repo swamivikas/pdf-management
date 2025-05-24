@@ -45,7 +45,7 @@ export default function InviteView() {
       <div className="card" style={{marginBottom:'16px'}}>
         <iframe
           title="PDF preview"
-          src={`/static/${file.stored_name}`}
+          src={`${BACKEND_URL}/static/${file.stored_name}`}
           width="100%"
           height="600px"
         />
